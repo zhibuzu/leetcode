@@ -55,8 +55,8 @@ class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
         int n = nums.size();
-        if (n <= 0) {
-            return 0;
+        if (n <= 1) {
+            return n;
         }
         int cursor = 0;
         int cursor_val = nums[cursor];
