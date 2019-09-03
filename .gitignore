@@ -1,2 +1,5 @@
 # vscode config file
 .vscode
+
+# compile output
+output

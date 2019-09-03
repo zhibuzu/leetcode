@@ -40,7 +40,35 @@
 class Solution {
 public:
     int strStr(string haystack, string needle) {
-        
+        int n = haystack.size();
+        int m = needle.size();
+        if (m == 0) {
+            return 0;
+        }
+
+        bool find_end = false;
+        int cursor = 0;
+        int first_find_idx = -1; 
+        while (!find_end) {
+            if (cursor + m > n) {
+                find_end = true;
+            } else {
+                int move_idx = 0;
+                find_end = true;
+                while (find_end && move_idx < m) {
+                    if (haystack[move_idx + cursor] != needle[move_idx]) {
+                        find_end = false;
+                        ++cursor;
+                    } else {
+                        ++move_idx;
+                    }
+                }
+                if (find_end) {
+                    first_find_idx = cursor;
+                }
+            }
+        }
+        return first_find_idx;
     }
 };
 
